@@ -60,7 +60,6 @@ export default function ProductCategories() {
 		<section
 			id="product-categories"
 			className="relative isolate overflow-hidden bg-[#FAF8F2] py-20 sm:py-24 lg:py-28">
-			{/* Background decoration */}
 			<div
 				aria-hidden="true"
 				className="pointer-events-none absolute -right-32 -top-40 -z-10 h-[420px] w-[420px] rounded-full bg-[#DCEAF5]/65 blur-[2px] sm:h-[580px] sm:w-[580px]"
@@ -143,10 +142,8 @@ export default function ProductCategories() {
 											className={`object-cover ${category.imagePosition} transition-transform duration-700 ease-out group-hover:scale-[1.055]`}
 										/>
 
-										{/* Image overlay */}
 										<div className="absolute inset-0 bg-gradient-to-t from-[#0E3C6E]/25 via-transparent to-white/5 transition-opacity duration-500 group-hover:from-[#0E3C6E]/15" />
 
-										{/* Category number */}
 										<div className="absolute right-4 top-4 flex h-9 min-w-9 items-center justify-center rounded-full border border-white/60 bg-white/80 px-3 text-[10px] font-semibold tracking-[0.15em] text-[#0E3C6E] backdrop-blur-md">
 											{category.id}
 										</div>
@@ -159,7 +156,6 @@ export default function ProductCategories() {
 									style={{
 										background: `linear-gradient(180deg, ${category.tint}30 0%, rgba(255,255,255,0.96) 72%)`,
 									}}>
-									{/* Floating category icon */}
 									<div
 										className="-mt-6 mb-4 flex h-[58px] w-[58px] items-center justify-center rounded-full border-[5px] border-white shadow-sm transition-transform duration-500 group-hover:scale-105"
 										style={{ backgroundColor: category.tint }}>
@@ -178,7 +174,6 @@ export default function ProductCategories() {
 										{category.subtitle}
 									</p>
 
-									{/* Small colour accent */}
 									<div
 										className="my-5 h-[3px] w-11 rounded-full transition-all duration-500 group-hover:w-16"
 										style={{ backgroundColor: category.accent }}
@@ -187,6 +182,18 @@ export default function ProductCategories() {
 									<p className="mb-7 flex-1 text-[13px] leading-[1.85] text-[#52635C] sm:text-sm sm:leading-7">
 										{category.description}
 									</p>
+
+									{/* UVA and UVB — Sun Care only */}
+									{index === 0 && (
+										<div className="mb-5 flex flex-wrap gap-2">
+											<span className="inline-flex items-center rounded-full border border-[#C9DFF1] bg-[#EAF3FB] px-3 py-1.5 text-xs font-semibold text-[#0E3C6E]">
+												UVA Filters
+											</span>
+											<span className="inline-flex items-center rounded-full border border-[#C9DFF1] bg-[#EAF3FB] px-3 py-1.5 text-xs font-semibold text-[#0E3C6E]">
+												UVB Filters
+											</span>
+										</div>
+									)}
 
 									{/* CTA */}
 									<Link
@@ -210,12 +217,15 @@ export default function ProductCategories() {
 					})}
 				</div>
 
-				{/* Optional bottom note */}
+				{/* Bottom note */}
 				<motion.div
 					initial={{ opacity: 0 }}
 					whileInView={{ opacity: 1 }}
 					viewport={{ once: true }}
-					transition={{ duration: reduceMotion ? 0.01 : 0.7, delay: 0.2 }}
+					transition={{
+						duration: reduceMotion ? 0.01 : 0.7,
+						delay: 0.2,
+					}}
 					className="mt-10 flex flex-col items-center justify-center gap-3 text-center sm:mt-12 sm:flex-row sm:gap-4">
 					<span className="h-px w-8 bg-[#DFE6DE]" />
 
