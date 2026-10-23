@@ -1,7 +1,12 @@
+import Ingredients from "@/src/components/home/Ingredients";
 import React from "react";
 
 const page = () => {
-	return <div>page</div>;
+	return (
+		<>
+			<Ingredients />
+		</>
+	);
 };
 
 export default page;

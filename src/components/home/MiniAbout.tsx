@@ -7,22 +7,25 @@ import { ArrowUpRight, FlaskConical, Microscope, Sparkles } from "lucide-react";
 const highlights = [
 	{
 		number: "01",
-		title: "Functional Ingredients",
-		description: "Specialised ingredients for personal-care formulations.",
+		title: "25 Years of Experience",
+		description:
+			"Decades of industry knowledge in chemical manufacturing and personal care applications.",
 		icon: FlaskConical,
 		background: "#DCEAF5",
 	},
 	{
 		number: "02",
-		title: "Application-Focused",
-		description: "Product knowledge aligned with formulation requirements.",
+		title: "Manufacturing Expertise",
+		description:
+			"Product-focused expertise supporting quality, consistency, and evolving formulation requirements.",
 		icon: Microscope,
 		background: "#E6EFE7",
 	},
 	{
 		number: "03",
-		title: "Lasting Partnerships",
-		description: "Professional relationships built around customer needs.",
+		title: "Long-Term Partnerships",
+		description:
+			"Building lasting business relationships through dependable service and customer-focused solutions.",
 		icon: Sparkles,
 		background: "#EBCFD0",
 	},
@@ -70,7 +73,7 @@ export default function MiniAbout() {
 					<span className="h-px w-9 bg-[#0365D0] sm:w-12" />
 
 					<p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#0365D0] sm:text-xs sm:tracking-[0.26em]">
-						Introducing Vrushaba Chemicals
+						25 Years of Chemical Manufacturing Expertise
 					</p>
 				</motion.div>
 
@@ -83,31 +86,34 @@ export default function MiniAbout() {
 						viewport={{ once: true, amount: 0.2 }}
 						className="lg:col-span-7">
 						<h2 className="max-w-3xl font-serif text-[clamp(2.5rem,5.4vw,5rem)] font-medium leading-[1.04] tracking-[-0.045em] text-[#0E3C6E]">
-							Rooted in Chemistry.
+							25 Years of
 							<span className="mt-2 block text-[#0365D0]">
-								Focused on Care.
+								Chemical Expertise.
 							</span>
 						</h2>
 
 						<div className="mt-7 max-w-2xl space-y-5 text-sm leading-7 text-[#34443E] sm:mt-9 sm:text-base sm:leading-8">
 							<p>
-								At Vrushaba Chemicals, we focus on functional and active
-								ingredients that support the development of personal-care
-								formulations. Our portfolio brings together specialised
-								ingredients for sun care, hair care, and hair colour
+								With 25 years of industry experience, Vrushaba Chemicals is
+								focused on chemical manufacturing and specialised solutions for
+								personal care applications. Our expertise spans ingredients and
+								formulations for sun care, hair care, and hair colour
 								applications.
 							</p>
 
 							<p>
-								We believe that the right ingredient, supported by reliable
-								product information and a clear understanding of its intended
-								application, helps businesses make informed formulation and
-								sourcing decisions.
+								We recognise the importance of product quality, consistency, and
+								application-specific requirements. Our approach combines
+								manufacturing experience with a practical understanding of the
+								needs of businesses working across the personal care industry.
 							</p>
 
 							<p>
-								Our approach centres on product knowledge, customer
-								requirements, and building lasting professional relationships.
+								Over the years, our focus has remained on delivering dependable
+								chemical solutions, understanding customer requirements, and
+								building lasting professional relationships. We continue to
+								value quality, experience, and long-term collaboration in
+								everything we do.
 							</p>
 						</div>
 
@@ -119,7 +125,7 @@ export default function MiniAbout() {
 							<Link
 								href="/about-us"
 								className="group inline-flex min-h-12 items-center gap-4 rounded-full bg-[#0E3C6E] py-2 pl-6 pr-2 text-sm font-semibold text-white shadow-[0_12px_30px_-12px_rgba(14,60,110,0.45)] transition-colors duration-300 hover:bg-[#0365D0] sm:min-h-14 sm:pl-7">
-								Learn More About Us
+								Discover Our Manufacturing Expertise
 								<span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/15 transition-all duration-300 group-hover:rotate-45 group-hover:bg-white/25">
 									<ArrowUpRight size={18} />
 								</span>
@@ -149,11 +155,11 @@ export default function MiniAbout() {
 							<div className="mb-5 flex items-center justify-between gap-4 border-b border-[#DFE6DE] pb-5">
 								<div>
 									<p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#718078]">
-										Our approach
+										Our expertise
 									</p>
 
 									<h3 className="mt-2 font-serif text-2xl leading-tight text-[#0E3C6E] sm:text-3xl">
-										Chemistry with purpose.
+										Experience built on quality.
 									</h3>
 								</div>
 
@@ -186,7 +192,9 @@ export default function MiniAbout() {
 											whileHover={reduceMotion ? undefined : { x: 4 }}
 											className="group flex items-start gap-4 py-5 first:pt-4 last:pb-2">
 											<div
-												style={{ backgroundColor: item.background }}
+												style={{
+													backgroundColor: item.background,
+												}}
 												className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-[#0E3C6E] transition-all duration-300 group-hover:scale-105 group-hover:shadow-sm">
 												<Icon size={20} strokeWidth={1.6} />
 											</div>

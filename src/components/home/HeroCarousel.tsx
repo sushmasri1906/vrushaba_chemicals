@@ -289,62 +289,61 @@ import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 
 const slides = [
 	{
-		eyebrow: "FUNCTIONAL & ACTIVE INGREDIENTS",
-		title: "The Science Behind",
-		accent: "Better Care.",
+		eyebrow: "25 YEARS OF CHEMICAL MANUFACTURING",
+		title: "25 Years of Chemical",
+		accent: "Expertise.",
 		description:
-			"Specialised ingredients for sun care, hair care and hair colour applications.",
+			"A legacy of manufacturing expertise, dependable quality, and solutions for personal care and hair colour applications.",
 		image:
 			"https://res.cloudinary.com/spkdq7z2/image/upload/v1791972501/k3fx2pyQuONoAerZ5YVRMmoyzVHn_uii-N3M_1sCjO048TexpYttJJK06hDsb4B1ZhAP9baxzOVnN3c8-th9DLkMxZlU1v5BsrisrJT_azwZ67Ina_SR0kBbw2nIVcCo6AjccHygiNGqhEAlY4O4mX1Jt3mThy2hLzFZTUbuwobEMQXAx5WIxp_xZYXBCq2I.jpg",
 		category: "PERSONAL CARE",
 	},
 	{
-		eyebrow: "INNOVATION IN HAIR CARE",
-		title: "Chemistry That",
-		accent: "Transforms.",
+		eyebrow: "EXPERIENCE IN PERSONAL CARE CHEMISTRY",
+		title: "Manufacturing That",
+		accent: "Delivers.",
 		description:
-			"Specialised ingredients for the next generation of hair care formulations.",
+			"Developing and manufacturing quality-focused solutions for evolving hair care formulations.",
 		image:
 			"https://res.cloudinary.com/spkdq7z2/image/upload/v1791972307/a2a376a1-b357-4b41-9793-58508bb0d4b9.png",
 		category: "HAIR CARE",
 	},
 	{
-		eyebrow: "ADVANCED HAIR COLOUR",
-		title: "Colour Meets",
-		accent: "Chemistry.",
+		eyebrow: "25 YEARS OF FORMULATION KNOW-HOW",
+		title: "Expertise in",
+		accent: "Hair Colour.",
 		description:
-			"Discover ingredients for innovative hair colour and dye applications.",
+			"Manufacturing solutions for hair colour and dye applications, backed by decades of industry experience.",
 		image:
 			"https://res.cloudinary.com/spkdq7z2/image/upload/v1791972307/72251397-1dd0-4a04-ab55-58cfd4b1bc3f.png",
 		category: "HAIR COLOUR",
 	},
 	{
-		eyebrow: "BEAUTY SCIENCE & RESEARCH",
-		title: "Driven by",
-		accent: "Discovery.",
+		eyebrow: "QUALITY, EXPERIENCE & CONTINUOUS IMPROVEMENT",
+		title: "Built on",
+		accent: "Experience.",
 		description:
-			"Science-led thinking for evolving personal care formulations.",
+			"Combining practical manufacturing knowledge with a commitment to consistent product quality.",
 		image:
 			"https://res.cloudinary.com/spkdq7z2/image/upload/v1791972307/e5a7c960-fdb4-497b-a805-24b8bd3bbb1b.png",
 		category: "RESEARCH & DEVELOPMENT",
 	},
 	{
-		eyebrow: "SUN CARE INNOVATION",
-		title: "Protection Through",
-		accent: "Precision.",
+		eyebrow: "SPECIALISED PERSONAL CARE SOLUTIONS",
+		title: "Quality Through",
+		accent: "Expertise.",
 		description:
-			"Explore ingredients for modern sun care and skincare formulations.",
+			"Supporting sun care and skincare applications with specialised chemical solutions and manufacturing experience.",
 		image:
 			"https://res.cloudinary.com/spkdq7z2/image/upload/v1791972320/1dfa0700-f59a-4b00-a938-051bca8c1080.png",
 		category: "SUN CARE",
 	},
 	{
-		eyebrow: "PERSONAL CARE INNOVATION",
-		title: "Possibilities in",
-		accent: "Every Formula.",
+		eyebrow: "A PARTNER FOR THE LONG TERM",
+		title: "Experience in",
+		accent: "Every Formulation.",
 		description:
-			"Discover specialised ingredients for evolving personal care applications.",
-		// Replace with your sixth image URL when available.
+			"Partnering with businesses to deliver dependable chemical solutions for personal care applications.",
 		image:
 			"https://res.cloudinary.com/spkdq7z2/image/upload/v1791972501/k3fx2pyQuONoAerZ5YVRMmoyzVHn_uii-N3M_1sCjO048TexpYttJJK06hDsb4B1ZhAP9baxzOVnN3c8-th9DLkMxZlU1v5BsrisrJT_azwZ67Ina_SR0kBbw2nIVcCo6AjccHygiNGqhEAlY4O4mX1Jt3mThy2hLzFZTUbuwobEMQXAx5WIxp_xZYXBCq2I.jpg",
 		category: "FORMULATION",
@@ -352,9 +351,9 @@ const slides = [
 ];
 
 const highlights = [
-	"Personal Care Ingredients",
-	"Product-Focused Expertise",
-	"B2B Partnerships",
+	"25 Years of Industry Experience",
+	"Chemical Manufacturing Expertise",
+	"Quality-Focused Solutions",
 ];
 
 const AUTOPLAY_DELAY = 6000;

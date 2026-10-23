@@ -19,6 +19,7 @@ const navigation = [
 	{ name: "Home", href: "/" },
 	{ name: "About Us", href: "/about-us" },
 	{ name: "Research & Development", href: "/research-development" },
+	{ name: "Blog", href: "/blog" },
 	{ name: "Contact", href: "/contact" },
 ];
 
@@ -58,7 +59,6 @@ export default function Navbar() {
 		setMobileProductsOpen(false);
 	}, []);
 
-	// Change navbar appearance when scrolling.
 	useEffect(() => {
 		const handleScroll = () => setScrolled(window.scrollY > 40);
 
@@ -68,7 +68,6 @@ export default function Navbar() {
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
-	// Close menus when clicking outside the navbar.
 	useEffect(() => {
 		const handleOutsideClick = (event: PointerEvent) => {
 			const target = event.target;
@@ -89,7 +88,6 @@ export default function Navbar() {
 		};
 	}, [closeMenus]);
 
-	// Close menus when pressing Escape.
 	useEffect(() => {
 		const handleKeyDown = (event: KeyboardEvent) => {
 			if (event.key === "Escape") closeMenus();
@@ -100,26 +98,23 @@ export default function Navbar() {
 		return () => window.removeEventListener("keydown", handleKeyDown);
 	}, [closeMenus]);
 
-	const desktopLinkClass = `group relative whitespace-nowrap py-3 text-[13px] font-medium transition-colors duration-300 ${
-		scrolled
-			? "text-[#303936]/85 hover:text-[#0E3C6E]"
-			: "text-white/90 hover:text-white"
-	}`;
+	// Dark navigation text for light backgrounds.
+	const desktopLinkClass =
+		"group relative whitespace-nowrap py-3 text-[13px] font-medium text-[#303936]/90 transition-colors duration-300 hover:text-[#0365D0]";
 
-	const underlineClass = `absolute bottom-0 left-0 h-px w-0 transition-all duration-300 group-hover:w-full ${
-		scrolled ? "bg-[#0E3C6E]" : "bg-white"
-	}`;
+	const underlineClass =
+		"absolute bottom-0 left-0 h-px w-0 bg-[#0E3C6E] transition-all duration-300 group-hover:w-full";
 
 	return (
 		<>
 			{/* Announcement bar */}
-			<div className="absolute inset-x-0 top-0 z-[60] hidden border-b border-white/30 bg-black/20 lg:block">
-				<div className="mx-auto flex h-[37px] max-w-[1600px] items-center justify-between gap-4 px-10 text-[10px] font-medium tracking-[0.14em] text-white/90 xl:px-16">
-					<p>FUNCTIONAL &amp; ACTIVE INGREDIENTS FOR PERSONAL CARE</p>
+			<div className="absolute inset-x-0 top-0 z-[60] hidden border-b border-[#E6E8E0] bg-[#FAF8F2]/95 lg:block">
+				<div className="mx-auto flex h-[37px] max-w-[1600px] items-center justify-between gap-4 px-10 text-[10px] font-medium tracking-[0.14em] text-[#303936] xl:px-16">
+					<p>25 YEARS OF CHEMICAL MANUFACTURING EXPERIENCE</p>
 
 					<Link
 						href="/contact"
-						className="group inline-flex items-center gap-2 transition-colors hover:text-white">
+						className="group inline-flex items-center gap-2 transition-colors hover:text-[#0365D0]">
 						CONNECT WITH OUR TEAM
 						<ArrowUpRight
 							size={13}
@@ -134,8 +129,8 @@ export default function Navbar() {
 				ref={headerRef}
 				className={`fixed inset-x-0 z-50 border-b transition-all duration-300 ${
 					scrolled
-						? "top-0 border-[#E6E8E0] bg-[#FAF8F2]/95 text-[#303936] shadow-[0_8px_30px_-18px_rgba(14,60,110,0.28)] backdrop-blur-xl"
-						: "top-0 border-transparent bg-[#FAF8F2] text-[#303936] lg:top-[37px] lg:bg-transparent lg:text-white"
+						? "top-0 border-[#E6E8E0] bg-[#FAF8F2]/95 text-[#303936] shadow-[0_8px_30px_-18px_rgba(14,60,110,0.18)] backdrop-blur-xl"
+						: "top-0 border-[#E6E8E0]/70 bg-[#FAF8F2]/95 text-[#303936] backdrop-blur-xl lg:top-[37px]"
 				}`}>
 				<div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 xl:px-16">
 					<div
@@ -150,12 +145,7 @@ export default function Navbar() {
 							onClick={closeMenus}
 							aria-label="Vrushaba Chemicals home"
 							className="group flex shrink-0 items-center gap-2.5">
-							<span
-								className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-[14px] border p-1 sm:h-12 sm:w-12 ${
-									scrolled
-										? "border-[#DCE4DB] bg-white"
-										: "border-white/50 bg-white/95 shadow-sm"
-								}`}>
+							<span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[14px] border border-[#DCE4DB] bg-white p-1 sm:h-12 sm:w-12">
 								{/* eslint-disable-next-line @next/next/no-img-element */}
 								<img
 									src={LOGO_URL}
@@ -167,16 +157,10 @@ export default function Navbar() {
 							</span>
 
 							<span className="hidden sm:block">
-								<span
-									className={`block font-serif text-lg leading-tight ${
-										scrolled ? "text-[#0E3C6E]" : "text-white"
-									}`}>
+								<span className="block font-serif text-lg leading-tight text-[#0E3C6E]">
 									Vrushaba
 								</span>
-								<span
-									className={`mt-1 block text-[9px] font-medium uppercase tracking-[0.2em] ${
-										scrolled ? "text-[#64736C]" : "text-white/80"
-									}`}>
+								<span className="mt-1 block text-[9px] font-medium uppercase tracking-[0.2em] text-[#64736C]">
 									Chemicals
 								</span>
 							</span>
@@ -211,9 +195,9 @@ export default function Navbar() {
 									}`}
 								/>
 								<span
-									className={`absolute bottom-0 left-0 h-px transition-all duration-300 ${
+									className={`absolute bottom-0 left-0 h-px bg-[#0E3C6E] transition-all duration-300 ${
 										productsOpen ? "w-full" : "w-0"
-									} ${scrolled ? "bg-[#0E3C6E]" : "bg-white"}`}
+									}`}
 								/>
 							</button>
 
@@ -231,11 +215,7 @@ export default function Navbar() {
 						{/* Desktop CTA */}
 						<Link
 							href="/contact"
-							className={`group hidden shrink-0 items-center gap-3 rounded-full px-4 py-2.5 text-[12px] font-medium transition-all duration-300 lg:flex xl:px-5 ${
-								scrolled
-									? "bg-[#0E3C6E] text-white shadow-sm hover:bg-[#174F82]"
-									: "border border-white/50 bg-white/10 text-white backdrop-blur-md hover:bg-white hover:text-[#0E3C6E]"
-							}`}>
+							className="group hidden shrink-0 items-center gap-3 rounded-full bg-[#0E3C6E] px-4 py-2.5 text-[12px] font-medium text-white shadow-sm transition-all duration-300 hover:bg-[#0365D0] lg:flex xl:px-5">
 							Enquire Now
 							<span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15 transition-transform duration-300 group-hover:rotate-45">
 								<ArrowUpRight size={14} />
@@ -253,7 +233,7 @@ export default function Navbar() {
 							aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
 							aria-expanded={mobileOpen}
 							aria-controls="mobile-navigation"
-							className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#DCE4DB] bg-white/80 text-[#0E3C6E] transition-colors hover:bg-[#E6EFE7] lg:hidden">
+							className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#DCE4DB] bg-white text-[#0E3C6E] transition-colors hover:bg-[#E6EFE7] lg:hidden">
 							{mobileOpen ? <X size={21} /> : <Menu size={21} />}
 						</button>
 					</div>
@@ -287,7 +267,7 @@ export default function Navbar() {
 							</p>
 						</div>
 
-						{/* Direct product category links */}
+						{/* Product category links */}
 						<div className="col-span-5 space-y-3">
 							{products.map((product) => {
 								const Icon = product.icon;
@@ -299,9 +279,7 @@ export default function Navbar() {
 										onClick={closeMenus}
 										className="group flex items-center gap-4 rounded-xl border border-transparent p-4 transition-all duration-300 hover:border-[#DCE4DB] hover:bg-white">
 										<span
-											style={{
-												backgroundColor: product.color,
-											}}
+											style={{ backgroundColor: product.color }}
 											className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-[#0E3C6E]">
 											<Icon size={22} strokeWidth={1.5} />
 										</span>
@@ -373,7 +351,7 @@ export default function Navbar() {
 								href={item.href}
 								onClick={closeMenus}
 								tabIndex={mobileOpen ? 0 : -1}
-								className="flex items-center justify-between border-b border-[#E6E8E0] py-4 text-sm font-medium hover:text-[#0E3C6E]">
+								className="flex items-center justify-between border-b border-[#E6E8E0] py-4 text-sm font-medium text-[#303936] hover:text-[#0E3C6E]">
 								<span>
 									<span className="mr-3 text-[10px] tracking-widest text-[#8A9A8D]">
 										0{index + 1}
@@ -392,7 +370,7 @@ export default function Navbar() {
 								aria-expanded={mobileProductsOpen}
 								aria-controls="mobile-products-list"
 								tabIndex={mobileOpen ? 0 : -1}
-								className="flex w-full items-center justify-between py-4 text-sm font-medium hover:text-[#0E3C6E]">
+								className="flex w-full items-center justify-between py-4 text-sm font-medium text-[#303936] hover:text-[#0E3C6E]">
 								<span>
 									<span className="mr-3 text-[10px] tracking-widest text-[#8A9A8D]">
 										03
@@ -463,7 +441,7 @@ export default function Navbar() {
 								href={item.href}
 								onClick={closeMenus}
 								tabIndex={mobileOpen ? 0 : -1}
-								className="flex items-center justify-between gap-3 border-b border-[#E6E8E0] py-4 text-sm font-medium hover:text-[#0E3C6E]">
+								className="flex items-center justify-between gap-3 border-b border-[#E6E8E0] py-4 text-sm font-medium text-[#303936] hover:text-[#0E3C6E]">
 								<span>
 									<span className="mr-3 text-[10px] tracking-widest text-[#8A9A8D]">
 										0{index + 4}
