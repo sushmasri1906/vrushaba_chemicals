@@ -63,7 +63,10 @@ export default function Navbar() {
 		const handleScroll = () => setScrolled(window.scrollY > 40);
 
 		handleScroll();
-		window.addEventListener("scroll", handleScroll, { passive: true });
+
+		window.addEventListener("scroll", handleScroll, {
+			passive: true,
+		});
 
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
@@ -90,15 +93,18 @@ export default function Navbar() {
 
 	useEffect(() => {
 		const handleKeyDown = (event: KeyboardEvent) => {
-			if (event.key === "Escape") closeMenus();
+			if (event.key === "Escape") {
+				closeMenus();
+			}
 		};
 
 		window.addEventListener("keydown", handleKeyDown);
 
-		return () => window.removeEventListener("keydown", handleKeyDown);
+		return () => {
+			window.removeEventListener("keydown", handleKeyDown);
+		};
 	}, [closeMenus]);
 
-	// Dark navigation text for light backgrounds.
 	const desktopLinkClass =
 		"group relative whitespace-nowrap py-3 text-[13px] font-medium text-[#303936]/90 transition-colors duration-300 hover:text-[#0365D0]";
 
@@ -107,69 +113,41 @@ export default function Navbar() {
 
 	return (
 		<>
-			{/* Announcement bar */}
-			<div className="absolute inset-x-0 top-0 z-[60] hidden border-b border-[#E6E8E0] bg-[#FAF8F2]/95 lg:block">
-				<div className="mx-auto flex h-[37px] max-w-[1600px] items-center justify-between gap-4 px-10 text-[10px] font-medium tracking-[0.14em] text-[#303936] xl:px-16">
-					<p>25 YEARS OF CHEMICAL MANUFACTURING EXPERIENCE</p>
-
-					<Link
-						href="/contact"
-						className="group inline-flex items-center gap-2 transition-colors hover:text-[#0365D0]">
-						CONNECT WITH OUR TEAM
-						<ArrowUpRight
-							size={13}
-							className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-						/>
-					</Link>
-				</div>
-			</div>
-
-			{/* Main navbar */}
+			{/* Main Navbar */}
 			<header
 				ref={headerRef}
-				className={`fixed inset-x-0 z-50 border-b transition-all duration-300 ${
+				className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
 					scrolled
-						? "top-0 border-[#E6E8E0] bg-[#FAF8F2]/95 text-[#303936] shadow-[0_8px_30px_-18px_rgba(14,60,110,0.18)] backdrop-blur-xl"
-						: "top-0 border-[#E6E8E0]/70 bg-[#FAF8F2]/95 text-[#303936] backdrop-blur-xl lg:top-[37px]"
+						? "border-[#E6E8E0] bg-[#FAF8F2]/95 text-[#303936] shadow-[0_8px_30px_-18px_rgba(14,60,110,0.18)] backdrop-blur-xl"
+						: "border-[#E6E8E0]/70 bg-[#FAF8F2]/95 text-[#303936] backdrop-blur-xl"
 				}`}>
 				<div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 xl:px-16">
 					<div
 						className={`flex items-center justify-between gap-4 transition-[height] duration-300 ${
 							scrolled
-								? "h-[70px] sm:h-[76px] lg:h-[78px]"
-								: "h-[76px] sm:h-[84px] lg:h-[92px]"
+								? "h-[68px] sm:h-[74px] lg:h-[78px]"
+								: "h-[72px] sm:h-[80px] lg:h-[88px]"
 						}`}>
-						{/* Logo */}
+						{/* Logo - No Box, Border, or Background */}
 						<Link
 							href="/"
 							onClick={closeMenus}
 							aria-label="Vrushaba Chemicals home"
-							className="group flex shrink-0 items-center gap-2.5">
-							<span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[14px] border border-[#DCE4DB] bg-white p-1 sm:h-12 sm:w-12">
-								{/* eslint-disable-next-line @next/next/no-img-element */}
-								<img
-									src={LOGO_URL}
-									alt="Vrushaba Chemicals"
-									width={48}
-									height={48}
-									className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
-								/>
-							</span>
-
-							<span className="hidden sm:block">
-								<span className="block font-serif text-lg leading-tight text-[#0E3C6E]">
-									Vrushaba
-								</span>
-								<span className="mt-1 block text-[9px] font-medium uppercase tracking-[0.2em] text-[#64736C]">
-									Chemicals
-								</span>
-							</span>
+							className="group flex min-w-0 shrink-0 items-center">
+							{/* eslint-disable-next-line @next/next/no-img-element */}
+							<img
+								src={LOGO_URL}
+								alt="Vrushaba Chemicals"
+								width={220}
+								height={72}
+								className="h-12 w-auto max-w-[170px] object-contain transition-transform duration-300 group-hover:scale-[1.02] sm:h-[54px] sm:max-w-[200px] lg:h-[60px] lg:max-w-[220px]"
+							/>
 						</Link>
 
-						{/* Desktop navigation */}
+						{/* Desktop Navigation */}
 						<nav
 							aria-label="Main navigation"
-							className="hidden items-center gap-5 lg:flex xl:gap-7">
+							className="hidden items-center gap-4 lg:flex xl:gap-6 2xl:gap-7">
 							{navigation.slice(0, 2).map((item) => (
 								<Link
 									key={item.name}
@@ -180,7 +158,7 @@ export default function Navbar() {
 								</Link>
 							))}
 
-							{/* Products dropdown */}
+							{/* Products Dropdown Button */}
 							<button
 								type="button"
 								aria-expanded={productsOpen}
@@ -212,17 +190,17 @@ export default function Navbar() {
 							))}
 						</nav>
 
-						{/* Desktop CTA */}
+						{/* Desktop Enquiry Button */}
 						<Link
 							href="/contact"
-							className="group hidden shrink-0 items-center gap-3 rounded-full bg-[#0E3C6E] px-4 py-2.5 text-[12px] font-medium text-white shadow-sm transition-all duration-300 hover:bg-[#0365D0] lg:flex xl:px-5">
+							className="group hidden shrink-0 items-center gap-2 rounded-full bg-[#0E3C6E] px-3.5 py-2.5 text-[12px] font-medium text-white shadow-sm transition-all duration-300 hover:bg-[#0365D0] lg:flex xl:gap-3 xl:px-5">
 							Enquire Now
 							<span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15 transition-transform duration-300 group-hover:rotate-45">
 								<ArrowUpRight size={14} />
 							</span>
 						</Link>
 
-						{/* Mobile toggle */}
+						{/* Mobile Menu Button */}
 						<button
 							type="button"
 							onClick={() => {
@@ -239,7 +217,7 @@ export default function Navbar() {
 					</div>
 				</div>
 
-				{/* Desktop products dropdown */}
+				{/* Desktop Products Dropdown */}
 				<div
 					id="products-mega-menu"
 					aria-hidden={!productsOpen}
@@ -267,7 +245,7 @@ export default function Navbar() {
 							</p>
 						</div>
 
-						{/* Product category links */}
+						{/* Product Categories */}
 						<div className="col-span-5 space-y-3">
 							{products.map((product) => {
 								const Icon = product.icon;
@@ -279,7 +257,9 @@ export default function Navbar() {
 										onClick={closeMenus}
 										className="group flex items-center gap-4 rounded-xl border border-transparent p-4 transition-all duration-300 hover:border-[#DCE4DB] hover:bg-white">
 										<span
-											style={{ backgroundColor: product.color }}
+											style={{
+												backgroundColor: product.color,
+											}}
 											className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-[#0E3C6E]">
 											<Icon size={22} strokeWidth={1.5} />
 										</span>
@@ -288,9 +268,11 @@ export default function Navbar() {
 											<span className="block text-[9px] tracking-[0.18em] text-[#84918A]">
 												{product.number}
 											</span>
+
 											<span className="mt-1 block font-serif text-lg text-[#0E3C6E] transition-colors group-hover:text-[#0365D0]">
 												{product.title}
 											</span>
+
 											<span className="mt-1 block text-xs leading-5 text-[#303936]/70">
 												{product.description}
 											</span>
@@ -305,7 +287,7 @@ export default function Navbar() {
 							})}
 						</div>
 
-						{/* Enquiry panel */}
+						{/* Enquiry Panel */}
 						<div className="col-span-3 flex flex-col justify-between rounded-2xl bg-[#E6EFE7] p-5 xl:p-6">
 							<div>
 								<span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/80 text-[#315B4C]">
@@ -333,11 +315,11 @@ export default function Navbar() {
 					</div>
 				</div>
 
-				{/* Mobile navigation */}
+				{/* Mobile Navigation */}
 				<div
 					id="mobile-navigation"
 					aria-hidden={!mobileOpen}
-					className={`absolute inset-x-0 top-full max-h-[calc(100dvh-76px)] overflow-y-auto border-t border-[#E5E6DD] bg-[#FAF8F2] text-[#303936] shadow-[0_24px_40px_-25px_rgba(14,60,110,0.25)] transition-all duration-300 sm:max-h-[calc(100dvh-84px)] lg:hidden ${
+					className={`absolute inset-x-0 top-full max-h-[calc(100dvh-68px)] overflow-y-auto border-t border-[#E5E6DD] bg-[#FAF8F2] text-[#303936] shadow-[0_24px_40px_-25px_rgba(14,60,110,0.25)] transition-all duration-300 sm:max-h-[calc(100dvh-74px)] lg:hidden ${
 						mobileOpen
 							? "visible translate-y-0 opacity-100"
 							: "invisible pointer-events-none -translate-y-2 opacity-0"
@@ -356,13 +338,15 @@ export default function Navbar() {
 									<span className="mr-3 text-[10px] tracking-widest text-[#8A9A8D]">
 										0{index + 1}
 									</span>
+
 									{item.name}
 								</span>
+
 								<ArrowUpRight size={16} className="text-[#6B8D79]" />
 							</Link>
 						))}
 
-						{/* Mobile products accordion */}
+						{/* Mobile Products Accordion */}
 						<div className="border-b border-[#E6E8E0]">
 							<button
 								type="button"
@@ -418,6 +402,7 @@ export default function Navbar() {
 														<span className="block text-sm font-medium text-[#0E3C6E] group-hover:text-[#0365D0]">
 															{product.title}
 														</span>
+
 														<span className="mt-1 block text-xs leading-5 text-[#303936]/65">
 															{product.description}
 														</span>
@@ -446,16 +431,19 @@ export default function Navbar() {
 									<span className="mr-3 text-[10px] tracking-widest text-[#8A9A8D]">
 										0{index + 4}
 									</span>
+
 									{item.name}
 								</span>
+
 								<ArrowUpRight size={16} className="shrink-0 text-[#6B8D79]" />
 							</Link>
 						))}
 
-						{/* Mobile enquiry panel */}
+						{/* Mobile Enquiry Panel */}
 						<div className="mt-6 rounded-2xl bg-[#E6EFE7] p-5">
 							<div className="flex items-center gap-2 text-[#315B4C]">
 								<Microscope size={18} />
+
 								<span className="text-[10px] font-semibold uppercase tracking-[0.16em]">
 									Let&apos;s work together
 								</span>

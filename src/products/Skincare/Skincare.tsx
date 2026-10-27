@@ -59,6 +59,14 @@ const uvbProducts: Product[] = [
 		description: "UVB filter ingredient for sunscreen formulations.",
 	},
 	{
+		name: "VRUSHCARE Etone Amine",
+		cas: "26218-04-2",
+		code: "EA",
+		slug: "vrushcare-etone-amine",
+		description:
+			"Primary intermediate used in the synthesis of Ethylhexyl Triazone UVB filters.",
+	},
+	{
 		name: "VRUSHCARE Octyl Methoxycinnamate",
 		cas: "5466-77-3",
 		code: "OMC",

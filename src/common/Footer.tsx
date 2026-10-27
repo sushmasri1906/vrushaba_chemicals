@@ -9,6 +9,8 @@ import {
 	Mail,
 	Phone,
 	MoveUpRight,
+	MapPin,
+	Globe,
 } from "lucide-react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -36,15 +38,27 @@ const products = [
 const contactDetails = [
 	{
 		label: "Email",
-		value: "Contact our team",
-		href: "/contact",
+		value: "santoshkumar.a@vrushabachemicals.com",
+		href: "mailto:santoshkumar.a@vrushabachemicals.com",
 		icon: Mail,
 	},
 	{
-		label: "Enquiries",
-		value: "Product & sourcing enquiries",
-		href: "/contact?type=product-enquiry",
+		label: "Phone",
+		value: "93927 49234",
+		href: "tel:+919392749234",
 		icon: Phone,
+	},
+	{
+		label: "Website",
+		value: "www.vrushabachemicals.com",
+		href: "https://www.vrushabachemicals.com",
+		icon: Globe,
+	},
+	{
+		label: "Location",
+		value: "Telangana, India",
+		href: "https://www.google.com/maps/search/?api=1&query=Telangana%2C+India",
+		icon: MapPin,
 	},
 ];
 
@@ -66,6 +80,11 @@ const socialLinks = [
 	},
 ];
 
+const LOGO_URL =
+	"https://res.cloudinary.com/spkdq7z2/image/upload/v1791971168/Vrushaba_Logo_Final_-_PNG_1.png";
+
+const CONTACT_BANNER_URL = "/images/vrushaba-contact-banner.png";
+
 export default function Footer() {
 	const reduceMotion = useReducedMotion();
 
@@ -83,26 +102,31 @@ export default function Footer() {
 			/>
 
 			<div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
-				{/* Main footer */}
+				{/* Main Footer */}
 				<div className="grid gap-9 py-10 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-10 sm:py-12 lg:grid-cols-12 lg:gap-8 lg:py-14">
 					{/* Brand */}
 					<motion.div
-						initial={{ opacity: 0, y: reduceMotion ? 0 : 12 }}
+						initial={{
+							opacity: 0,
+							y: reduceMotion ? 0 : 12,
+						}}
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true }}
-						transition={{ duration: reduceMotion ? 0.01 : 0.5 }}
+						transition={{
+							duration: reduceMotion ? 0.01 : 0.5,
+						}}
 						className="sm:col-span-2 lg:col-span-4">
 						<Link
 							href="/"
 							aria-label="Vrushaba Chemicals home"
-							className="inline-flex rounded-md bg-white p-2 transition-opacity hover:opacity-90">
+							className="inline-flex items-center">
 							<Image
-								src="https://res.cloudinary.com/spkdq7z2/image/upload/v1791971168/Vrushaba_Logo_Final_-_PNG_1.png"
+								src={LOGO_URL}
 								alt="Vrushaba Chemicals"
 								width={180}
 								height={70}
 								sizes="180px"
-								className="h-auto w-[125px] object-contain sm:w-[145px]"
+								className="h-auto w-[125px] object-contain sm:w-[145px] bg-amber-50 rounded-md p-2"
 							/>
 						</Link>
 
@@ -112,7 +136,7 @@ export default function Footer() {
 							lasting professional partnerships.
 						</p>
 
-						{/* Font Awesome social icons */}
+						{/* Social Links */}
 						<div className="mt-5">
 							<p className="mb-2.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/45">
 								Connect with us
@@ -137,7 +161,10 @@ export default function Footer() {
 
 					{/* Navigation */}
 					<motion.div
-						initial={{ opacity: 0, y: reduceMotion ? 0 : 12 }}
+						initial={{
+							opacity: 0,
+							y: reduceMotion ? 0 : 12,
+						}}
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true }}
 						transition={{
@@ -156,6 +183,7 @@ export default function Footer() {
 										href={item.href}
 										className="group inline-flex items-center gap-1.5 text-[13px] text-white/65 transition-colors hover:text-white">
 										{item.label}
+
 										<ArrowUpRight
 											size={12}
 											className="opacity-0 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100"
@@ -168,7 +196,10 @@ export default function Footer() {
 
 					{/* Products */}
 					<motion.div
-						initial={{ opacity: 0, y: reduceMotion ? 0 : 12 }}
+						initial={{
+							opacity: 0,
+							y: reduceMotion ? 0 : 12,
+						}}
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true }}
 						transition={{
@@ -187,6 +218,7 @@ export default function Footer() {
 										href={product.href}
 										className="group inline-flex items-center gap-1.5 text-[13px] text-white/65 transition-colors hover:text-white">
 										{product.label}
+
 										<ArrowUpRight
 											size={12}
 											className="shrink-0 opacity-0 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100"
@@ -199,7 +231,10 @@ export default function Footer() {
 
 					{/* Contact */}
 					<motion.div
-						initial={{ opacity: 0, y: reduceMotion ? 0 : 12 }}
+						initial={{
+							opacity: 0,
+							y: reduceMotion ? 0 : 12,
+						}}
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true }}
 						transition={{
@@ -216,30 +251,41 @@ export default function Footer() {
 								const Icon = item.icon;
 
 								return (
-									<Link
+									<a
 										key={item.label}
 										href={item.href}
+										target={
+											item.label === "Website" || item.label === "Location"
+												? "_blank"
+												: undefined
+										}
+										rel={
+											item.label === "Website" || item.label === "Location"
+												? "noopener noreferrer"
+												: undefined
+										}
 										className="group flex items-start gap-3">
 										<span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/15 bg-white/[0.04] text-[#B8D9F3] transition-colors group-hover:bg-white/10">
 											<Icon size={15} strokeWidth={1.6} />
 										</span>
 
-										<span className="pt-0.5">
+										<span className="min-w-0 pt-0.5">
 											<span className="block text-[11px] text-white/45">
 												{item.label}
 											</span>
-											<span className="mt-1 block text-[13px] leading-5 text-white/80 transition-colors group-hover:text-white">
+
+											<span className="mt-1 block break-words text-[13px] leading-5 text-white/80 transition-colors group-hover:text-white">
 												{item.value}
 											</span>
 										</span>
-									</Link>
+									</a>
 								);
 							})}
 						</div>
 
 						<Link
 							href="/contact"
-							className="group mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[#B8D9F3] transition-colors hover:text-white">
+							className="group mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-[#B8D9F3] transition-colors hover:text-white">
 							Contact our team
 							<ArrowRight
 								size={14}
@@ -249,7 +295,7 @@ export default function Footer() {
 					</motion.div>
 				</div>
 
-				{/* Compact bottom bar */}
+				{/* Bottom Bar */}
 				<div className="border-t border-white/15 py-5">
 					<div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
 						<p className="text-[11px] leading-5 text-white/50">
@@ -278,9 +324,11 @@ export default function Footer() {
 								rel="noopener noreferrer"
 								className="group inline-flex items-center gap-1.5 text-[11px] text-white/55 transition-colors hover:text-white">
 								<span>Developed by</span>
+
 								<span className="font-bold tracking-wide text-white/85">
 									HSDEV
 								</span>
+
 								<MoveUpRight
 									size={12}
 									className="text-[#B8D9F3] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
