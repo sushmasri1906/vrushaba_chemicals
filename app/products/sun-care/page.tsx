@@ -1,10 +1,10 @@
+import SkinCare from "@/src/products/Skincare/Skincare";
 import React from "react";
-import Suncare from "@/src/products/Suncare";
 
 const page = () => {
 	return (
 		<>
-			<Suncare />
+			<SkinCare />
 		</>
 	);
 };
