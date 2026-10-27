@@ -1,6 +1,5 @@
-import HairCare from "@/src/products/Haircare";
 import React from "react";
-
+import HairCare from "@/src/products/Haircare/Haircare";
 const page = () => {
 	return (
 		<>
