@@ -18,8 +18,8 @@ import {
 const navigation = [
 	{ name: "Home", href: "/" },
 	{ name: "About Us", href: "/about-us" },
-	{ name: "Research & Development", href: "/research-development" },
-	{ name: "Blog", href: "/blog" },
+	// { name: "Research & Development", href: "/research-development" },
+	// { name: "Blog", href: "/blog" },
 	{ name: "Contact", href: "/contact" },
 ];
 

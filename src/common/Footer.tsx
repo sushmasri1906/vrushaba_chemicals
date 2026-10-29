@@ -23,15 +23,15 @@ import {
 const navigation = [
 	{ label: "Home", href: "/" },
 	{ label: "About Us", href: "/about-us" },
-	{ label: "Research & Development", href: "/research-development" },
-	{ label: "Applications", href: "/applications" },
+	// { label: "Research & Development", href: "/research-development" },
+	// { label: "Applications", href: "/applications" },
 	{ label: "Contact", href: "/contact" },
 ];
 
 const products = [
 	{ label: "Sun Care Ingredients", href: "/products/sun-care" },
 	{ label: "Hair Care Ingredients", href: "/products/hair-care" },
-	{ label: "Hair Colour Ingredients", href: "/products/hair-dye" },
+	// { label: "Hair Colour Ingredients", href: "/products/hair-dye" },
 	{ label: "All Products", href: "/products" },
 ];
 
@@ -56,8 +56,9 @@ const contactDetails = [
 	},
 	{
 		label: "Location",
-		value: "Telangana, India",
-		href: "https://www.google.com/maps/search/?api=1&query=Telangana%2C+India",
+		value:
+			"Survey No. 843/A, Medchal Industrial Estate, Medchal-Malkajgiri District, Telangana, India - 501401",
+		href: "https://www.google.com/maps/search/?api=1&query=Survey+No.+843%2FA%2C+Medchal+Industrial+Estate%2C+Medchal-Malkajgiri+District%2C+Telangana+501401",
 		icon: MapPin,
 	},
 ];

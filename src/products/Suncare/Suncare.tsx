@@ -18,6 +18,12 @@ type Product = {
 	description: string;
 };
 
+type Category = "uva" | "uvb" | "other";
+
+/* -------------------------------------------------------------------------- */
+/*                                UVA PRODUCTS                                */
+/* -------------------------------------------------------------------------- */
+
 const uvaProducts: Product[] = [
 	{
 		name: "VRUSHCARE Avobenzone",
@@ -37,48 +43,54 @@ const uvaProducts: Product[] = [
 	{
 		name: "VRUSHCARE BEMT",
 		cas: "187393-00-6",
-		code: "BEM-T",
+		code: "BEMT",
 		slug: "vrushcare-bemt",
-		description: "Broad-spectrum UV filter for sun care formulations.",
+		description:
+			"Broad-spectrum UV filter ingredient for sun care formulations.",
 	},
 	{
-		name: "VRUSHCARE DHBT",
-		cas: "154702-15-5",
-		code: "DHBT",
-		slug: "vrushcare-dhbt",
-		description: "UV-filter ingredient for sun care formulations.",
+		name: "VRUSHCARE Benzophenone-3",
+		cas: "131-57-7",
+		code: "BP3",
+		slug: "vrushcare-benzophenone-3",
+		description:
+			"UV filter ingredient used in eligible sunscreen and sun care formulations.",
 	},
 ];
 
+/* -------------------------------------------------------------------------- */
+/*                                UVB PRODUCTS                                */
+/* -------------------------------------------------------------------------- */
+
 const uvbProducts: Product[] = [
 	{
-		name: "VRUSHCARE Ethyl Hexyl Triazone",
+		name: "VRUSHCARE Ethylhexyl Triazone",
 		cas: "88122-99-0",
 		code: "EHT",
 		slug: "vrushcare-ethyl-hexyl-triazone",
 		description: "UVB filter ingredient for sunscreen formulations.",
 	},
 	{
-		name: "VRUSHCARE Etone Amine",
-		cas: "26218-04-2",
-		code: "EA",
-		slug: "vrushcare-etone-amine",
-		description:
-			"Primary intermediate used in the synthesis of Ethylhexyl Triazone UVB filters.",
-	},
-	{
 		name: "VRUSHCARE Octyl Methoxycinnamate",
 		cas: "5466-77-3",
 		code: "OMC",
 		slug: "vrushcare-octyl-methoxycinnamate",
-		description: "UVB filter used in eligible sun care formulations.",
+		description:
+			"UVB filter ingredient used in eligible sun care formulations.",
+	},
+	{
+		name: "VRUSHCARE Etone Amine",
+		cas: "26218-04-2",
+		code: "EHAB",
+		slug: "vrushcare-etone-amine",
+		description: "UVB filter ingredient for sunscreen formulations.",
 	},
 	{
 		name: "VRUSHCARE Octocrylene",
 		cas: "6197-30-4",
 		code: "OC",
 		slug: "vrushcare-octocrylene",
-		description: "UV-filter ingredient used in sunscreen formulations.",
+		description: "UV filter ingredient used in sunscreen formulations.",
 	},
 	{
 		name: "VRUSHCARE Octyl Salicylate",
@@ -89,26 +101,123 @@ const uvbProducts: Product[] = [
 	},
 	{
 		name: "VRUSHCARE PABA",
-		cas: "21245-02-3",
+		cas: "150-13-0",
 		code: "PABA",
 		slug: "vrushcare-paba",
 		description:
-			"UV-filter ingredient. Confirm permitted use in the target market.",
+			"UV-filter ingredient. Confirm permitted use and regulatory requirements in the target market.",
 	},
 ];
 
-const backgroundImages = {
+/* -------------------------------------------------------------------------- */
+/*                           OTHER PRODUCTS / ACTIVES                         */
+/* -------------------------------------------------------------------------- */
+
+const productsx: Product[] = [
+	{
+		name: "VRUSHCARE Chlorphenesin",
+		cas: "104-29-0",
+		code: "CPN",
+		slug: "vrushcare-chlorphenesin",
+		description:
+			"Preservative and antimicrobial ingredient for cosmetic formulations.",
+	},
+	{
+		name: "VRUSHCARE 5-Nitrobenzimidazole",
+		cas: "94-52-0",
+		code: "NBI",
+		slug: "vrushcare-5-nitrobenzimidazole",
+		description:
+			"Chemical compound for applicable industrial and laboratory applications.",
+	},
+	{
+		name: "VRUSHCARE 4-n-Butylresorcinol",
+		cas: "18979-61-8",
+		code: "4NBR",
+		slug: "vrushcare-4-n-butyl-resorcinol",
+		description:
+			"Skin-tone and pigmentation-care active ingredient for applicable cosmetic formulations.",
+	},
+	{
+		name: "VRUSHCARE 3,5-Di-tert-butyl-4-hydroxybenzyl Alcohol",
+		cas: "88-26-6",
+		code: "DTBHBA",
+		slug: "vrushcare-3-5-di-tert-butyl-4-hydroxy-benzyl-alcohol",
+		description:
+			"Antioxidant and chemical intermediate for applicable industrial formulations.",
+	},
+	{
+		name: "VRUSHCARE 6-(1-Pyrrolidinyl)-2,4-pyrimidinediamine 3-oxide",
+		cas: "55921-65-8",
+		code: "PDPO",
+		slug: "vrushcare-6-1-pyrrolidinyl-2-4-pyrimidine-diamine-3-oxide",
+		description:
+			"Active ingredient for hair-care formulations targeting hair growth and hair loss.",
+	},
+];
+
+/* -------------------------------------------------------------------------- */
+/*                              BACKGROUND IMAGES                             */
+/* -------------------------------------------------------------------------- */
+
+const backgroundImages: Record<Category, string> = {
 	uva: "https://res.cloudinary.com/spkdq7z2/image/upload/v1792673928/6623babd-f1ff-422a-bad6-5dff083787cc.png",
 	uvb: "https://res.cloudinary.com/spkdq7z2/image/upload/v1791972320/1dfa0700-f59a-4b00-a938-051bca8c1080.png",
+	other:
+		"https://res.cloudinary.com/spkdq7z2/image/upload/v1792673928/6623babd-f1ff-422a-bad6-5dff083787cc.png",
 };
 
-export default function SkinCarePage() {
-	const [activeTab, setActiveTab] = useState<"uva" | "uvb">("uva");
+/* -------------------------------------------------------------------------- */
+/*                               CATEGORY DATA                                */
+/* -------------------------------------------------------------------------- */
+
+const categoryData: Record<
+	Category,
+	{
+		label: string;
+		heading: string;
+		description: string;
+	}
+> = {
+	uva: {
+		label: "UVA Protection",
+		heading: "UVA Filters",
+		description:
+			"Explore ingredients used in UVA protection and sun care formulations.",
+	},
+	uvb: {
+		label: "UVB Protection",
+		heading: "UVB Filters",
+		description:
+			"Explore ingredients used in UVB protection and sun care formulations.",
+	},
+	other: {
+		label: "Specialty Ingredients",
+		heading: "Other Ingredients",
+		description:
+			"Explore specialty ingredients, cosmetic actives, preservatives and chemical intermediates.",
+	},
+};
+
+/* -------------------------------------------------------------------------- */
+/*                                SUN CARE PAGE                               */
+/* -------------------------------------------------------------------------- */
+
+export default function SunCarePage() {
+	const [activeTab, setActiveTab] = useState<Category>("uva");
+
 	const carouselRef = useRef<HTMLDivElement>(null);
 
-	const products = activeTab === "uva" ? uvaProducts : uvbProducts;
+	const products: Product[] =
+		activeTab === "uva"
+			? uvaProducts
+			: activeTab === "uvb"
+				? uvbProducts
+				: productsx;
 
-	function changeTab(tab: "uva" | "uvb") {
+	const activeCategory = categoryData[activeTab];
+
+	function changeTab(tab: Category) {
 		setActiveTab(tab);
 
 		if (carouselRef.current) {
@@ -123,6 +232,7 @@ export default function SkinCarePage() {
 		if (!carouselRef.current) return;
 
 		const container = carouselRef.current;
+
 		const firstCard = container.querySelector<HTMLElement>(
 			"[data-product-card]",
 		);
@@ -138,7 +248,8 @@ export default function SkinCarePage() {
 
 	return (
 		<main className="overflow-hidden bg-[#FAF8F2] text-[#303936]">
-			{/* Hero */}
+			{/* HERO SECTION */}
+
 			<section
 				className="relative isolate bg-cover bg-center"
 				style={{
@@ -160,7 +271,7 @@ export default function SkinCarePage() {
 
 						<span className="mx-2">/</span>
 
-						<span>Skin Care</span>
+						<span>Sun Care</span>
 					</nav>
 
 					<div className="max-w-2xl">
@@ -174,8 +285,9 @@ export default function SkinCarePage() {
 						</h1>
 
 						<p className="mt-6 max-w-xl text-base leading-7 text-[#354D5D] sm:text-lg">
-							Explore our sun care ingredient catalogue, including UV filters
-							for different formulation requirements.
+							Explore our ingredient catalogue, featuring UV filters and
+							specialty ingredients for diverse cosmetic and personal care
+							formulations.
 						</p>
 
 						<div className="mt-8 flex flex-wrap gap-3">
@@ -198,7 +310,7 @@ export default function SkinCarePage() {
 					<div className="mt-12 flex flex-wrap gap-x-7 gap-y-4 border-t border-[#0E3C6E]/15 pt-6">
 						<span className="flex items-center gap-2 text-sm text-[#354D5D]">
 							<ShieldCheck size={18} className="text-[#0E3C6E]" />
-							Sun care ingredients
+							Personal care ingredients
 						</span>
 
 						<span className="flex items-center gap-2 text-sm text-[#354D5D]">
@@ -209,7 +321,8 @@ export default function SkinCarePage() {
 				</div>
 			</section>
 
-			{/* Product catalogue */}
+			{/* PRODUCT CATALOGUE */}
+
 			<section
 				id="sun-care-catalogue"
 				className="scroll-mt-20 bg-[#FAF8F2] py-14 sm:py-20">
@@ -220,16 +333,17 @@ export default function SkinCarePage() {
 						</p>
 
 						<h2 className="font-serif text-3xl text-[#0E3C6E] sm:text-4xl">
-							Sun Care Products
+							Our Ingredients
 						</h2>
 
 						<p className="mt-3 text-sm leading-6 text-[#56615E] sm:text-base">
-							Select a filter category to explore the ingredients. Open any
-							product to view its complete technical profile.
+							Select a category to explore our products. Open any product to
+							view its technical profile.
 						</p>
 					</div>
 
-					{/* Category product carousel */}
+					{/* CATEGORY PRODUCT CAROUSEL */}
+
 					<div
 						className="relative isolate overflow-hidden rounded-[28px] border border-[#0E3C6E]/10 bg-cover bg-center transition-all duration-500"
 						style={{
@@ -237,28 +351,33 @@ export default function SkinCarePage() {
 						}}>
 						<div
 							className={`absolute inset-0 -z-10 transition-colors duration-500 ${
-								activeTab === "uva" ? "bg-[#DCEAF5]/90" : "bg-[#F8E4D9]/90"
+								activeTab === "uva"
+									? "bg-[#DCEAF5]/90"
+									: activeTab === "uvb"
+										? "bg-[#F8E4D9]/90"
+										: "bg-[#E6EFE7]/90"
 							}`}
 						/>
 
 						<div className="p-5 sm:p-8 lg:p-10">
-							{/* Category heading and carousel controls */}
+							{/* CATEGORY HEADER */}
+
 							<div className="mb-8 flex items-center justify-between gap-4">
 								<div>
 									<p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#456782]">
-										{activeTab === "uva" ? "UVA Protection" : "UVB Protection"}
+										{activeCategory.label}
 									</p>
 
 									<h3 className="mt-2 font-serif text-3xl text-[#0E3C6E] sm:text-4xl">
-										{activeTab === "uva" ? "UV A Filters" : "UV B Filters"}
+										{activeCategory.heading}
 									</h3>
 
 									<p className="mt-2 max-w-lg text-sm leading-6 text-[#354D5D]">
-										{activeTab === "uva"
-											? "Explore ingredients used in UVA protection and sun care formulations."
-											: "Explore ingredients used in UVB protection and sun care formulations."}
+										{activeCategory.description}
 									</p>
 								</div>
+
+								{/* DESKTOP CONTROLS */}
 
 								<div className="hidden shrink-0 gap-2 sm:flex">
 									<button
@@ -279,17 +398,21 @@ export default function SkinCarePage() {
 								</div>
 							</div>
 
-							{/* Horizontal sliding products */}
+							{/* PRODUCT CARDS */}
+
 							<div
 								ref={carouselRef}
 								key={activeTab}
 								className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
 								{products.map((product) => (
 									<article
-										key={product.code}
+										key={product.slug}
 										data-product-card
 										className="group flex w-[82%] min-w-[82%] snap-start flex-col rounded-2xl border border-white/80 bg-white/95 p-5 shadow-[0_8px_30px_rgba(14,60,110,0.06)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_35px_rgba(14,60,110,0.12)] sm:w-[46%] sm:min-w-[46%] lg:w-[calc(25%-15px)] lg:min-w-[calc(25%-15px)]">
-										<div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#DCEAF5] text-[#0E3C6E] transition-transform duration-300 group-hover:scale-105">
+										<div
+											className={`mb-5 flex h-12 w-12 items-center justify-center rounded-xl ${
+												activeTab === "other" ? "bg-[#E6EFE7]" : "bg-[#DCEAF5]"
+											} text-[#0E3C6E] transition-transform duration-300 group-hover:scale-105`}>
 											<span className="font-serif text-lg">
 												{product.code.slice(0, 2)}
 											</span>
@@ -312,7 +435,7 @@ export default function SkinCarePage() {
 										</p>
 
 										<Link
-											href={`/products/skin-care/${product.slug}`}
+											href={`/products/sun-care/${product.slug}`}
 											className="mt-6 inline-flex items-center justify-between gap-2 border-t border-[#0E3C6E]/10 pt-4 text-sm font-semibold text-[#0E3C6E] transition hover:text-[#0365D0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0365D0]">
 											View Product Details
 											<ArrowUpRight size={17} className="shrink-0" />
@@ -321,7 +444,8 @@ export default function SkinCarePage() {
 								))}
 							</div>
 
-							{/* Mobile carousel controls */}
+							{/* MOBILE CONTROLS */}
+
 							<div className="mt-4 flex justify-center gap-3 sm:hidden">
 								<button
 									type="button"
@@ -342,27 +466,26 @@ export default function SkinCarePage() {
 						</div>
 					</div>
 
-					{/* UV A / UV B selector at the bottom */}
 					<div className="mt-10 flex flex-col items-center">
 						<p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#56728A]">
 							Browse by Category
 						</p>
 
 						<div
-							className="inline-flex rounded-full border border-[#0E3C6E]/10 bg-white p-1.5 shadow-sm"
+							className="flex flex-wrap justify-center gap-1.5 rounded-2xl border border-[#0E3C6E]/10 bg-white p-1.5 shadow-sm sm:rounded-full"
 							role="tablist"
-							aria-label="UV filter categories">
+							aria-label="Product categories">
 							<button
 								type="button"
 								role="tab"
 								aria-selected={activeTab === "uva"}
 								onClick={() => changeTab("uva")}
-								className={`rounded-full px-7 py-3 text-sm font-semibold transition-all duration-300 sm:px-10 ${
+								className={`rounded-full px-5 py-3 text-sm font-semibold transition-all duration-300 sm:px-7 ${
 									activeTab === "uva"
 										? "bg-[#0E3C6E] text-white shadow-md"
 										: "text-[#354D5D] hover:bg-[#DCEAF5]"
 								}`}>
-								UV A
+								UVA Filters
 							</button>
 
 							<button
@@ -370,23 +493,43 @@ export default function SkinCarePage() {
 								role="tab"
 								aria-selected={activeTab === "uvb"}
 								onClick={() => changeTab("uvb")}
-								className={`rounded-full px-7 py-3 text-sm font-semibold transition-all duration-300 sm:px-10 ${
+								className={`rounded-full px-5 py-3 text-sm font-semibold transition-all duration-300 sm:px-7 ${
 									activeTab === "uvb"
 										? "bg-[#0E3C6E] text-white shadow-md"
 										: "text-[#354D5D] hover:bg-[#F8E4D9]"
 								}`}>
-								UV B
+								UVB Filters
+							</button>
+
+							<button
+								type="button"
+								role="tab"
+								aria-selected={activeTab === "other"}
+								onClick={() => changeTab("other")}
+								className={`rounded-full px-5 py-3 text-sm font-semibold transition-all duration-300 sm:px-7 ${
+									activeTab === "other"
+										? "bg-[#0E3C6E] text-white shadow-md"
+										: "text-[#354D5D] hover:bg-[#E6EFE7]"
+								}`}>
+								Other Ingredients
 							</button>
 						</div>
 
 						<p className="mt-4 text-center text-xs text-[#65716D]">
-							Showing {activeTab === "uva" ? "UV A" : "UV B"} products
+							Showing {products.length}{" "}
+							{activeTab === "uva"
+								? "UVA filter"
+								: activeTab === "uvb"
+									? "UVB filter"
+									: "other ingredient"}
+							{products.length !== 1 ? "s" : ""}
 						</p>
 					</div>
 				</div>
 			</section>
 
-			{/* Enquiry CTA */}
+			{/* ENQUIRY SECTION */}
+
 			<section
 				className="relative isolate overflow-hidden bg-cover bg-center"
 				style={{
@@ -401,7 +544,7 @@ export default function SkinCarePage() {
 						</p>
 
 						<h2 className="mt-3 font-serif text-3xl leading-tight text-[#0E3C6E] sm:text-4xl">
-							Let&apos;s discuss your sun care formulation needs.
+							Let&apos;s discuss your formulation needs.
 						</h2>
 
 						<p className="mt-3 text-sm leading-6 text-[#354D5D]">

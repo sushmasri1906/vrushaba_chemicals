@@ -11,7 +11,7 @@ const categories = [
 		title: "Sun Care",
 		description:
 			"Specialised ingredients for skincare formulations, from everyday essentials to advanced beauty applications.",
-		href: "/products/skin-care",
+		href: "/products/sun-care",
 		icon: Sparkles,
 		background: "#F5E8E5",
 	},
@@ -21,7 +21,7 @@ const categories = [
 		title: "Skin & Hair",
 		description:
 			"Versatile ingredients for personal care applications across skin and hair formulations.",
-		href: "/products/skin-hair",
+		href: "/products/sun-care",
 		icon: Droplets,
 		background: "#E6EFE7",
 	},
