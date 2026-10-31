@@ -36,21 +36,21 @@ const categories = [
 		accent: "#A9C8B2",
 		imagePosition: "object-center",
 	},
-	{
-		id: "03",
-		title: "Hair Colour Ingredients",
-		subtitle: "The chemistry behind colour development.",
-		description:
-			"Explore hair dye intermediates, couplers, and specialised colour ingredients for relevant hair colouring systems.",
-		href: "/products/hair-dye",
-		image:
-			"https://res.cloudinary.com/spkdq7z2/image/upload/v1791975159/0ffa660b-64fb-4130-a1df-8c81d4957e64.png",
-		imageAlt: "Glossy hair and professional hair colour inspiration",
-		icon: Flower2,
-		tint: "#F9E5E2",
-		accent: "#EBCFD0",
-		imagePosition: "object-center",
-	},
+	// {
+	// 	id: "03",
+	// 	title: "Hair Colour Ingredients",
+	// 	subtitle: "The chemistry behind colour development.",
+	// 	description:
+	// 		"Explore hair dye intermediates, couplers, and specialised colour ingredients for relevant hair colouring systems.",
+	// 	href: "/products/hair-dye",
+	// 	image:
+	// 		"https://res.cloudinary.com/spkdq7z2/image/upload/v1791975159/0ffa660b-64fb-4130-a1df-8c81d4957e64.png",
+	// 	imageAlt: "Glossy hair and professional hair colour inspiration",
+	// 	icon: Flower2,
+	// 	tint: "#F9E5E2",
+	// 	accent: "#EBCFD0",
+	// 	imagePosition: "object-center",
+	// },
 ];
 
 export default function ProductCategories() {
